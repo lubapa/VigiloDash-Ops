@@ -1,0 +1,15 @@
+## Depencies for the backend service
+# This file is used to install the necessary Python packages for the backend service of VigiloDash-Ops.
+# It includes FastAPI for building APIs, Uvicorn as the ASGI server.
+fastapi
+uvicorn
+# Proxmoxer for interacting with Proxmox VE API
+proxmoxer
+requests
+# Environment variable management
+pydantic-settings
+pydantic
+python-dotenv
+
+
+# typer
