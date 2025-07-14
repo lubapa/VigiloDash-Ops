@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    env_file:
+      - .env
+    volumes:
+      - ./backend/data:/app/app/data
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:5173"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

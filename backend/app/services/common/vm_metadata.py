@@ -17,9 +17,15 @@ def get_vm_metadata(provider: str, vmid: str):
     data = load_vm_metadata()
     return data.get(f"{provider}:{vmid}", {})
 
-def set_vm_metadata(provider: str, vmid: str, cliente: str, owner: str):
+def set_vm_metadata( vmid: str, name: str, provider: str, status: str, client: str, owner: str):
     data = load_vm_metadata()
-    data[f"{provider}:{vmid}"] = {"cliente": cliente, "owner": owner}
+    data[f"{vmid}"] = {
+        "name": name,
+        "provider": provider,
+        "status": status,
+        "cliente": client,
+        "owner": owner
+        }
     save_vm_metadata(data)
 
 def remove_vm_metadata(provider: str, vmid: str):
